@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./components/navigation";
 import Input from "./components/input-to-array";
+import FileReader from "./components/fileReader";
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <div>
     <Navigation />
     <Input />
+    <FileReader />
     </div>
   );
 }
