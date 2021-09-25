@@ -1,51 +1,57 @@
 import React, { Component } from "react";
 import CSVReader from "react-csv-reader";
-import DataDisplay from './dataDisplay';
+import DataDisplay from "./dataDisplay";
 
-
-
-  
-
-class FileReader extends Component{
-
+class FileReader extends Component {
   state = {
-data:[]
+    numbersArray: [],
+    numbersString: "abc",
+    fileInfo: "",
   };
-papaparseOptions = {
+
+  papaparseOptions = {
     header: true,
     dynamicTyping: true,
     skipEmptyLines: true,
-    transformHeader: header => header.toLowerCase().replace(/\W/g, "_")
+    transformHeader: (header) => header.toLowerCase().replace(/\W/g, "_"),
   };
 
-x = (data, fileInfo) => {
+  readFiletoState = (data, fileInfo) => {
+    const numbersArray = [];
+    data.map((data) => {
+      return numbersArray.push(data.numbers);
+    });
     this.setState({
-      data,
-      fileInfo
-    })
-  }
+      numbersArray,
+      fileInfo,
+      numbersString: numbersArray.join("\n"),
+    });
+  };
 
+  numArraytoString = this.setState({
+    numbersString: this.state.numbersArray.join("\n"),
+  });
 
-  render(){
+  render() {
     return (
       <div>
         <CSVReader
-          onFileLoaded={this.x}
+          onFileLoaded={this.readFiletoState}
           parserOptions={this.papaparseOptions}
         />
-        <p>and then open the console</p>
-        <DataDisplay data={this.state.data}/>
+        <h3>
+          File Name:{" "}
+          <span style={{ color: "red" }}>{this.state.fileInfo.name}</span>{" "}
+        </h3>
+        <h3>
+          File Type:{" "}
+          <span style={{ color: "red" }}>{this.state.fileInfo.type}</span>{" "}
+        </h3>
+
+        <DataDisplay data={this.state} />
       </div>
-      
     );
-    
   }
-
-
 }
 
-
-
 export default FileReader;
-
-
