@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import CSVReader from "react-csv-reader";
 import DataDisplay from "./dataDisplay";
+import Search from './search';
 
 class FileReader extends Component {
   state = {
     numbersArray: [],
-    numbersString: "abc",
+    numbersString: "",
     fileInfo: "",
+    filtered: []
   };
 
   papaparseOptions = {
@@ -32,23 +34,41 @@ class FileReader extends Component {
     numbersString: this.state.numbersArray.join("\n"),
   });
 
+  searchNumbers = (event)=>{
+    let keyword = event.target.value;
+    let filtered = this.state.numbersArray.filter((item)=>{
+        return item.indexOf(keyword) > -1
+    })
+    this.setState({filtered})
+    console.log(filtered);
+  }
+
   render() {
     return (
-      <div>
+      <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap text-white text-xl w-full lg:w-1/4 content-start">
+          <div className="p-5 mt-8 bg-purple-600 rounded-2xl w-full">
+        <Search searchNumbers={this.searchNumbers}/>
+        </div>
+        <div className="p-5 mt-8 bg-purple-600 rounded-2xl w-full">
+        <p>Upload a CSV file to import Contacts</p>
         <CSVReader
           onFileLoaded={this.readFiletoState}
           parserOptions={this.papaparseOptions}
+          cssClass="w-full p-5"
         />
-        <h3>
-          File Name:{" "}
-          <span style={{ color: "red" }}>{this.state.fileInfo.name}</span>{" "}
-        </h3>
-        <h3>
-          File Type:{" "}
-          <span style={{ color: "red" }}>{this.state.fileInfo.type}</span>{" "}
-        </h3>
+        </div>
+        </div>
+        <div className="text-white bg-gray-600 p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto">
+          <h3 className="text-2xl">
+            File Name: {this.state.fileInfo.name}
+          </h3>
+          <h3>
+            File Type: {this.state.fileInfo.type}
+          </h3>
 
-        <DataDisplay data={this.state} />
+          <DataDisplay data={this.state} />
+        </div>
       </div>
     );
   }

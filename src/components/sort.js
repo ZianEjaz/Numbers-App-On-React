@@ -2,7 +2,7 @@ import React from 'react';
 
 const SortedContacts = ()=>{
     return(
-        <div>
+        <div className="w-4/6 m-auto">
             sorted contacts
         </div>
     )

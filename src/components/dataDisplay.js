@@ -5,8 +5,8 @@ class DataDisplay extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Total Numbers Imported {this.props.data.numbersArray.length}</h3>
+      <div ><br/>
+        <h3>Total Numbers Imported {this.props.data.numbersArray.length}</h3><br/>
         <p style={{ whiteSpace: "pre-line" }}>
           {this.props.data.numbersString}
         </p>
