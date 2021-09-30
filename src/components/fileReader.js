@@ -2,14 +2,12 @@ import React, { Component } from "react";
 import CSVReader from "react-csv-reader";
 import DataDisplay from "./dataDisplay";
 import Search from "./search";
-import ReadArraytoHtml from "./readArraytoHtml";
 
 class FileReader extends Component {
   state = {
     numbersArray: [],
-    numbersString: [],
     fileInfo: "",
-    filtered: [],
+    filtered: []
   };
 
   papaparseOptions = {
@@ -26,14 +24,10 @@ class FileReader extends Component {
     });
     this.setState({
       numbersArray,
-      fileInfo,
-      numbersString: numbersArray.join("\n"),
+      fileInfo
     });
   };
 
-  numArraytoString = this.setState({
-    numbersString: this.state.numbersArray.join("\n"),
-  });
 
   searchNumbers = (event) => {
     let keyword = event.target.value;
@@ -41,10 +35,12 @@ class FileReader extends Component {
       return item.toString().indexOf(keyword) > -1;
     });
     this.setState({ filtered });
+    console.log(event.target.value)
   };
 
   render() {
     return (
+      
       <div className="flex flex-wrap justify-center">
         <div className="flex flex-wrap text-white text-xl w-full lg:w-1/4 content-start">
           <div className="p-5 mt-8 bg-purple-600 rounded-2xl w-full">
@@ -65,7 +61,7 @@ class FileReader extends Component {
           <h3>Total Numbers Imported {this.state.numbersArray.length}</h3>
           <div className=" ">
             {this.state.filtered.length === 0 ? (
-              <DataDisplay data={this.state.numbersString} />
+              <DataDisplay data={this.state.numbersArray} />
             ) : (
               <DataDisplay data={this.state.filtered} />
             )}
