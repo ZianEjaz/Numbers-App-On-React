@@ -1,18 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 
-class DataDisplay extends Component {
-  state = {};
-
-  render() {
-    return (
-      <div ><br/>
-        <h3>Total Numbers Imported {this.props.data.numbersArray.length}</h3><br/>
-        <p style={{ whiteSpace: "pre-line" }}>
-          {this.props.data.numbersString}
+const DataDisplay = (props) => {
+  return (
+    <div className="bg-gray-600 rounded-2xl p-8">
+      {props.data.map((item, index) => (
+        <p key={index} style={{ whiteSpace: "pre-line" }}
+          className="bg-gray-600 p-5 rounded-xl">
+          {item}
         </p>
-      </div>
-    );
-  }
-}
+      ))}
+    </div>
+  );
+};
 
 export default DataDisplay;
