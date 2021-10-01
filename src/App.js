@@ -5,13 +5,14 @@ import Sort from "./components/sort";
 import AddBefore from "./components/addbefore";
 import AddEnd from "./components/addend";
 import Navigation from './components/navigation';
+import Footer from './footer.js';
 
 const App = () => {
 
   return (
     <div>
       <Router>
-        <div>
+        <div className="min-h-screen flex flex-wrap">
           <Navigation />
 
           {/* A <Switch> looks through its children <Route>s and
@@ -30,6 +31,7 @@ const App = () => {
               <Home />
             </Route>
           </Switch>
+          <Footer />
         </div>
       </Router>
     </div>

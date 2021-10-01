@@ -5,9 +5,11 @@ import Search from "./search";
 
 class FileReader extends Component {
   state = {
+    fileReadSucessfully : false,
     numbersArray: [],
     fileInfo: "",
-    filtered: []
+    filtered: [],
+    keyword: "",
   };
 
   papaparseOptions = {
@@ -23,24 +25,25 @@ class FileReader extends Component {
       return numbersArray.push(data.numbers);
     });
     this.setState({
+      fileReadSucessfully : true,
       numbersArray,
-      fileInfo
+      fileInfo,
     });
   };
-
 
   searchNumbers = (event) => {
     let keyword = event.target.value;
     let filtered = this.state.numbersArray.filter((item) => {
       return item.toString().indexOf(keyword) > -1;
     });
-    this.setState({ filtered });
-    console.log(event.target.value)
+    this.setState({
+      filtered,
+      keyword,
+    });
   };
 
   render() {
     return (
-      
       <div className="flex flex-wrap justify-center">
         <div className="flex flex-wrap text-white text-xl w-full lg:w-1/4 content-start">
           <div className="p-5 mt-8 bg-purple-600 rounded-2xl w-full">
@@ -51,21 +54,34 @@ class FileReader extends Component {
             <CSVReader
               onFileLoaded={this.readFiletoState}
               parserOptions={this.papaparseOptions}
-              cssClass="w-full p-5"
+              cssClass="w-full text-center mt-6 flex flex-col jus items-center bg-white rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 hover:text-white text-purple-600 ease-linear transition-all duration-150"
+              cssInputClass="hidden"
+              label = "Select file"
             />
+            <div>
+              {this.state.fileReadSucessfully === true ? <p>File Sucessfully Uploaded</p> : <></>}
+            </div>
           </div>
         </div>
-        <div className="text-white bg-gray-700 p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto">
+        <div className="text-white bg-purple-700 p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto">
           <h3 className="text-2xl">File Name: {this.state.fileInfo.name}</h3>
           <h3>File Type: {this.state.fileInfo.type}</h3>
-          <h3>Total Numbers Imported {this.state.numbersArray.length}</h3>
-          <div className=" ">
-            {this.state.filtered.length === 0 ? (
-              <DataDisplay data={this.state.numbersArray} />
-            ) : (
-              <DataDisplay data={this.state.filtered} />
-            )}
-          </div>
+
+          {this.state.keyword === "" ? (
+            <h3>Total Numbers Imported {this.state.numbersArray.length}</h3>
+          ) : (
+            <h3  className="text-2xl p-4 rounded m-5">
+              Total Numbers Found:
+              <span className="m-4">{this.state.filtered.length}</span>
+            </h3>
+          )}
+          {this.state.keyword === "" ? (
+            <DataDisplay data={this.state.numbersArray} />
+          ) : (
+            <DataDisplay data={this.state.filtered} />
+          )}
+
+          <div className=" "></div>
         </div>
       </div>
     );
