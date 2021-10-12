@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CSVReader from "react-csv-reader";
 import DataDisplay from "./dataDisplay";
 import Search from "./search";
+import CopyButton from "./copyButton";
 
 class FileReader extends Component {
   state = {
@@ -51,10 +52,13 @@ class FileReader extends Component {
           </div>
           <div className="p-5 mt-8 bg-purple-600 rounded-2xl w-full">
             <p>Upload a CSV file to import Contacts</p>
+
+   
+
             <CSVReader
               onFileLoaded={this.readFiletoState}
               parserOptions={this.papaparseOptions}
-              cssClass="w-full text-center mt-6 flex flex-col jus items-center bg-white rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 hover:text-white text-purple-600 ease-linear transition-all duration-150"
+              cssClass="csv-reader-parent-class w-full text-center mt-6 flex flex-col jus items-center bg-white rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 hover:text-white text-purple-600 ease-linear transition-all duration-150"
               cssInputClass="hidden"
               label = "Select file"
             />
@@ -63,7 +67,10 @@ class FileReader extends Component {
             </div>
           </div>
         </div>
-        <div className="text-white bg-purple-700 p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto">
+        <div className="text-white bg-purple-700 p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto relative animate__bounceInDown">
+
+        <CopyButton />
+
           <h3 className="text-2xl">File Name: {this.state.fileInfo.name}</h3>
           <h3>File Type: {this.state.fileInfo.type}</h3>
 
@@ -75,6 +82,7 @@ class FileReader extends Component {
               <span className="m-4">{this.state.filtered.length}</span>
             </h3>
           )}
+           
           {this.state.keyword === "" ? (
             <DataDisplay data={this.state.numbersArray} />
           ) : (
@@ -83,6 +91,7 @@ class FileReader extends Component {
 
           <div className=" "></div>
         </div>
+        
       </div>
     );
   }

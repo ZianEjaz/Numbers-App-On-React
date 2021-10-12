@@ -1,11 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+
 import Home from "./components/home";
 import Sort from "./components/sort";
 import AddBefore from "./components/addbefore";
 import AddEnd from "./components/addend";
 import Navigation from './components/navigation';
 import Footer from './footer.js';
+
+library.add(fab, far, fas)
 
 const App = () => {
 

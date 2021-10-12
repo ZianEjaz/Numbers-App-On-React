@@ -19,7 +19,7 @@
 	background-color: rgba(167, 139, 250, var(--tw-bg-opacity));
 }
 
-/* .csv-reader-parent-class input{
-    background-color: #000 !important;
-    padding: 20px;
-} */
+.csv-reader-parent-class label{
+    width: 100%;
+	cursor: pointer;
+}
