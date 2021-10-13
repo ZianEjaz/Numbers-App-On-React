@@ -1,12 +1,14 @@
 import React from "react";
-
+import CopyButton from "./copyButton";
 
 const DataDisplay = (props) => {
+  
   return (
+    
     <>
       {props.data.length > 0 ? (
-        <div className="bg-purple-500 rounded-2xl p-8 m-8 max-h-80 overflow-y-scroll scrl-bar-cstm-purple">
-         
+        <div className="bg-purple-500 rounded-2xl p-8 m-8 max-h-80 overflow-y-scroll scrl-bar-cstm-purple relative">
+         <CopyButton data={props.data}/>
 
           {props.data.map((item, index) => (
             <p
@@ -21,6 +23,8 @@ const DataDisplay = (props) => {
       ) : (
         <p className="bg-red-600 rounded-2xl p-8 m-8 ">No Data Found</p>
       )}
+      
+      
     </>
   );
 };

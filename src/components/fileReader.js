@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import CSVReader from "react-csv-reader";
 import DataDisplay from "./dataDisplay";
 import Search from "./search";
-import CopyButton from "./copyButton";
+
+
 
 class FileReader extends Component {
   state = {
@@ -11,7 +12,11 @@ class FileReader extends Component {
     fileInfo: "",
     filtered: [],
     keyword: "",
+    data: []
   };
+
+
+
 
   papaparseOptions = {
     header: true,
@@ -29,7 +34,9 @@ class FileReader extends Component {
       fileReadSucessfully : true,
       numbersArray,
       fileInfo,
+      data
     });
+    this.props.passDataToHome(numbersArray);
   };
 
   searchNumbers = (event) => {
@@ -69,7 +76,7 @@ class FileReader extends Component {
         </div>
         <div className="text-white bg-purple-700 p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto relative animate__bounceInDown">
 
-        <CopyButton />
+        
 
           <h3 className="text-2xl">File Name: {this.state.fileInfo.name}</h3>
           <h3>File Type: {this.state.fileInfo.type}</h3>
@@ -91,7 +98,6 @@ class FileReader extends Component {
 
           <div className=" "></div>
         </div>
-        
       </div>
     );
   }
