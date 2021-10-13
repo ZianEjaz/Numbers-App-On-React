@@ -5,7 +5,7 @@ class FileReader extends Component {
   state = {
     fileData: {
       fileReadSucessfully: false,
-      fileInfo: "",
+      fileInfo: {},
       data: [],
       numbersArray: [],
     },
@@ -24,10 +24,12 @@ class FileReader extends Component {
       return numbersArray.push(data.numbers);
     });
     this.setState({
+      fileData:{
       fileReadSucessfully: true,
       numbersArray,
       fileInfo,
       data,
+      }
     });
     this.props.passFileDataToHomeState(this.state.fileData);
   };

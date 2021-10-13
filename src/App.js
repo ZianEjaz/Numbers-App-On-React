@@ -15,6 +15,20 @@ import Footer from "./footer.js";
 library.add(fab, far, fas);
 
 class App extends Component {
+  state = {
+    globalState :{
+      dataArray : []
+    }
+  };
+
+  globalStateDataImport = (data) => {
+    this.setState({
+      globalState :{
+        dataArray : data
+      }
+    });
+  };
+
   render() {
     return (
       <div>
@@ -26,16 +40,16 @@ class App extends Component {
             renders the first one that matches the current URL. */}
             <Switch>
               <Route path="/addend">
-                <AddEnd />
+                <AddEnd data={this.state.globalState.dataArray}/>
               </Route>
               <Route path="/addbefore">
-                <AddBefore />
+                <AddBefore data={this.state.globalState.dataArray}/>
               </Route>
               <Route path="/sortcountry">
                 <Sort />
               </Route>
               <Route path="/">
-                <Home />
+                <Home globalStateDataImport={this.globalStateDataImport} />
               </Route>
             </Switch>
             <Footer />
