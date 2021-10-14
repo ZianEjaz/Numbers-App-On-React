@@ -40,7 +40,7 @@ class FileReader extends Component {
         <CSVReader
           onFileLoaded={this.readFiletoState}
           parserOptions={this.papaparseOptions}
-          cssClass="csv-reader-parent-class w-full text-center mt-6 flex flex-col jus items-center bg-white rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-purple-600 hover:text-white text-purple-600 ease-linear transition-all duration-150"
+          cssClass="csv-reader-parent-class w-full text-center mt-6 flex flex-col jus items-center bg-white rounded-2xl shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-transparent hover:text-white text-gray-900 ease-linear transition-all duration-150"
           cssInputClass="hidden"
           label="Select file"
         />

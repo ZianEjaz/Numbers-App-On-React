@@ -17,7 +17,7 @@ library.add(fab, far, fas);
 class App extends Component {
   state = {
     globalState :{
-      dataArray : []
+      dataArray : [1,2,3,45]
     }
   };
 
@@ -31,7 +31,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="bg-gray-950" >
         <Router>
           <div className="min-h-screen flex flex-wrap">
             <Navigation />

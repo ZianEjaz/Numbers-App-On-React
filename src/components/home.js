@@ -9,7 +9,7 @@ class Home extends Component {
       fileReadSucessfully: false,
       fileInfo: {},
       data: [],
-      numbersArray: [],
+      numbersArray:[],
     },
     filtered: [],
     keyword: "",
@@ -34,15 +34,15 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="w-4/6 m-auto">
-        <div className="flex flex-wrap justify-center">
+      <div className="w-4/6 mx-auto">
+        <div className="flex flex-wrap">
           <div className="flex flex-wrap text-white text-xl w-full lg:w-1/4 content-start">
             <Search
               function={this.searchNumbers}
               placeholder={"Search Numbers"}
               type ={'number'}
             />
-            <div className="p-5 mt-8 bg-purple-600 rounded-2xl w-full">
+            <div className="p-5 mt-8 rounded-2xl w-full shadow-3xl">
               <p>Upload a CSV file to import Contacts</p>
 
               <FileReader
@@ -50,7 +50,7 @@ class Home extends Component {
               />
             </div>
           </div>
-          <div className="text-white bg-purple-700 p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto relative animate__bounceInDown">
+          <div className="text-white p-2 md:p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto relative animate__bounceInDown md:shadow-3xl">
             <h3 className="text-2xl">
               File Name: {this.state.fileData.fileInfo.name}
             </h3>
@@ -61,7 +61,7 @@ class Home extends Component {
                 Total Numbers Imported {this.state.fileData.numbersArray.length}
               </h3>
             ) : (
-              <h3 className="text-2xl p-4 rounded m-5">
+              <h3 className="text-2xl p-4 rounded-2xl m-5">
                 Total Numbers Found:
                 <span className="m-4">{this.state.filtered.length}</span>
               </h3>
