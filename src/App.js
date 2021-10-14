@@ -17,7 +17,7 @@ library.add(fab, far, fas);
 class App extends Component {
   state = {
     globalState :{
-      dataArray : [1,2,3,45]
+      dataArray : []
     }
   };
 
@@ -52,7 +52,7 @@ class App extends Component {
                 <Home globalStateDataImport={this.globalStateDataImport} />
               </Route>
             </Switch>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </Router>
       </div>

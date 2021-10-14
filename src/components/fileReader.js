@@ -36,7 +36,7 @@ class FileReader extends Component {
 
   render() {
     return (
-      <>
+      <div>
         <CSVReader
           onFileLoaded={this.readFiletoState}
           parserOptions={this.papaparseOptions}
@@ -45,9 +45,9 @@ class FileReader extends Component {
           label="Select file"
         />
         <div>
-              {this.state.fileReadSucessfully === true ? <p>File Sucessfully Uploaded</p> : <></>}
+              {this.state.fileData.fileReadSucessfully === true ? <p>File Sucessfully Uploaded</p> : <></>}
             </div>
-      </>
+      </div>
     );
   }
 }

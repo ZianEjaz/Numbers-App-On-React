@@ -35,14 +35,17 @@ class Home extends Component {
   render() {
     return (
       <div className="w-4/6 mx-auto">
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap ">
+          
           <div className="flex flex-wrap text-white text-xl w-full lg:w-1/4 content-start">
+           
             <Search
               function={this.searchNumbers}
               placeholder={"Search Numbers"}
               type ={'number'}
             />
-            <div className="p-5 mt-8 rounded-2xl w-full shadow-3xl">
+        
+            <div className={`p-5 mt-8 rounded-2xl w-full shadow-3xl ${this.state.fileData.fileReadSucessfully ? 'shadow-sucess-3xl' : 'shadow-fail-3xl'} bg-grey-900`} >
               <p>Upload a CSV file to import Contacts</p>
 
               <FileReader
@@ -50,7 +53,7 @@ class Home extends Component {
               />
             </div>
           </div>
-          <div className="text-white p-2 md:p-8 rounded-2xl mt-8 w-full lg:w-2/3 m-auto relative animate__bounceInDown md:shadow-3xl">
+          <div className="text-white p-2 md:p-8 rounded-2xl mt-8 w-screen md:w-2/3 mx-auto mt-8 relative animate__bounceInDown shadow-3xl bg-grey-950">
             <h3 className="text-2xl">
               File Name: {this.state.fileData.fileInfo.name}
             </h3>

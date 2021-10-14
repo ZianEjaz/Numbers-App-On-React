@@ -26,8 +26,18 @@
 .bg-gray-950{
 	background-color: #353535;
 }
+.bg-grey-900{
+	background-color: #444444 !important;
+}
 
 .shadow-3xl{
 	
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.shadow-sucess-3xl{
+	box-shadow: #9EBD6E -10px 10px;
+}
+.shadow-fail-3xl{
+	box-shadow: #ef4444 -10px 10px;
 }
