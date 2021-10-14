@@ -7,7 +7,7 @@ const DataDisplay = (props) => {
     
     <>
       {props.data.length > 0 ? (
-        <div className="bg-gray-950 rounded-xl p-8 md:m-8 max-h-80 overflow-y-scroll scrl-bar-cstm-purple relative shadow-3xl text-white min-h-screen">
+        <div className="bg-gray-950 rounded-xl p-8 md:m-8 max-h-80 overflow-y-scroll scrl-bar-cstm-purple relative shadow-3xl text-white min-h-screen mt-6">
          <CopyButton data={props.data}/>
 
           {props.data.map((item, index) => (
