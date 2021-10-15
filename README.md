@@ -1,8 +1,3 @@
-Just clone this repo
-run npm i or npm install
-run it on your localhost
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
