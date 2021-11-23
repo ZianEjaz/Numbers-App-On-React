@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Search from "./search";
 import DataDisplay from "./dataDisplay";
+import { Link } from "react-router-dom";
 
 class AddBefore extends Component {
   state ={
@@ -22,6 +23,13 @@ this.setState({
   render() {
     return (
       <div className="md:w-1/2 w-full m-auto p-3">
+        <Link
+className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+to="/"
+>
+Upload File
+
+</Link>
         <Search 
         function={this.addBeforeText}/>
         <DataDisplay data={this.state.data} />
