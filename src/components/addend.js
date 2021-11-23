@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Search from "./search";
 import DataDisplay from "./dataDisplay";
+import { Animated } from "react-animated-css";
+
 
 class AddEnd extends Component {
   state ={
@@ -21,10 +23,12 @@ this.setState({
   }
   render() {
     return (
-      <div className="w-4/6 m-auto">
+      <div className="md:w-1/2 w-full m-auto p-3">
+         <Animated animationIn="animate__zoomIn" animationOut="animate__zoomOut" isVisible={true}>
         <Search 
         function={this.addBeforeText}/>
         <DataDisplay data={this.state.data} />
+        </ Animated >
       </div>
     );
   }

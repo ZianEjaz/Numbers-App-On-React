@@ -17,7 +17,7 @@ class CopyButton extends Component {
     return (
       <div
         onClick={this.fabCheckIcon}
-        className="absolute top-0 right-0 text-center m-1 cursor-pointer"
+        className="absolute top-0 right-0 text-center m-1 cursor-pointer "
       >
         <CopyToClipboard
           text={this.props.data}

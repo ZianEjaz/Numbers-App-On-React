@@ -1,10 +1,10 @@
 import React from "react";
-
 function Search(props) {
 
 
   return (
-<div className="p-2 mt-8 rounded-2xl w-full shadow-3xl">
+<div >
+
       <input
       onChange={props.function}
         className="w-full p-3 placeholder-gray-500 text-gray-900 rounded-xl sm:text-sm"
@@ -12,6 +12,7 @@ function Search(props) {
         name="search"
         placeholder={props.placeholder}
       ></input>
+          
 </div>
   );
 }

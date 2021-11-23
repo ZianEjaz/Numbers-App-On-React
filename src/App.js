@@ -5,6 +5,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 
+
 import Home from "./components/home";
 import Sort from "./components/sort";
 import AddBefore from "./components/addbefore";
@@ -39,7 +40,9 @@ class App extends Component {
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
             <Switch>
+            
               <Route path="/addend">
+                
                 <AddEnd data={this.state.globalState.dataArray}/>
               </Route>
               <Route path="/addbefore">
@@ -51,6 +54,7 @@ class App extends Component {
               <Route path="/">
                 <Home globalStateDataImport={this.globalStateDataImport} />
               </Route>
+              
             </Switch>
             {/* <Footer /> */}
           </div>
