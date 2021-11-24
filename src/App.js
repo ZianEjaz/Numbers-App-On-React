@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -39,23 +39,23 @@ class App extends Component {
 
             {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-            <Switch>
+            <Routes>
             
-              <Route path="/addend">
+              <Route path="/addend" element={ <AddEnd data={this.state.globalState.dataArray}/>} />
                 
-                <AddEnd data={this.state.globalState.dataArray}/>
-              </Route>
-              <Route path="/addbefore">
-                <AddBefore data={this.state.globalState.dataArray}/>
-              </Route>
-              <Route path="/sortcountry">
-                <Sort />
-              </Route>
-              <Route path="/">
-                <Home globalStateDataImport={this.globalStateDataImport} />
-              </Route>
+               
+
+              <Route path="/addbefore" element={<AddBefore data={this.state.globalState.dataArray}/>} />
+                
+
+              <Route path="/sortcountry" element={<Sort />} />
+                
+
+              <Route path="/" element={<Home globalStateDataImport={this.globalStateDataImport} />} />
+                
+
               
-            </Switch>
+            </Routes>
             {/* <Footer /> */}
           </div>
         </Router>
