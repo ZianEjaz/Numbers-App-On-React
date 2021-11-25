@@ -30,6 +30,14 @@ class App extends Component {
     });
   };
 
+  updateDataToGlobalState = (data) =>{
+    this.setState({
+      globalState :{
+        dataArray : data
+      }
+    });
+  }
+
   render() {
     return (
       <div className="bg-gray-950" >
@@ -41,14 +49,14 @@ class App extends Component {
             renders the first one that matches the current URL. */}
             <Routes>
             
-              <Route path="/addend" element={ <AddEnd data={this.state.globalState.dataArray}/>} />
+              <Route path="/addend" element={ <AddEnd data={this.state.globalState.dataArray} updateDataToGlobalState={this.updateDataToGlobalState} />} />
                 
                
 
-              <Route path="/addbefore" element={<AddBefore data={this.state.globalState.dataArray}/>} />
+              <Route path="/addbefore" element={<AddBefore data={this.state.globalState.dataArray} updateDataToGlobalState={this.updateDataToGlobalState} />} />
                 
 
-              <Route path="/sortcountry" element={<Sort data={this.state.globalState.dataArray} />} />
+              <Route path="/sortcountry" element={<Sort data={this.state.globalState.dataArray} updateDataToGlobalState={this.updateDataToGlobalState} />} />
                 
 
               <Route path="/" element={<Home globalStateDataImport={this.globalStateDataImport} />} />
@@ -56,10 +64,10 @@ class App extends Component {
 
               
             </Routes>
-            {/* <Footer /> */}
+            
           </div>
         </Router>
-        < Footer />
+        <Footer data={this.state.globalState.dataArray}/>
       </div>
     );
   }

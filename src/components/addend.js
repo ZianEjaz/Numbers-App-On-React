@@ -10,13 +10,10 @@ class AddEnd extends Component {
     dataToAddBefore : ''
   }
   addBeforeText = (event)=>{
-  const  finalData = this.props.data.map((item)=>{
+  const  finalData = this.state.data.map((item)=>{
 return `${item}${event.target.value}`
     })
-this.setState({
-   data:finalData,
-  dataToAddBefore : event.target.value
-})
+    this.props.updateDataToGlobalState(finalData)
 
 
 
@@ -27,7 +24,7 @@ this.setState({
          <Animated animationIn="animate__zoomIn" animationOut="animate__zoomOut" isVisible={true}>
         <Search 
         function={this.addBeforeText}/>
-        <DataDisplay data={this.state.data} />
+        <DataDisplay data={this.props.data} />
         </ Animated >
       </div>
     );

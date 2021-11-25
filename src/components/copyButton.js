@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
+
 class CopyButton extends Component {
   state = {
     hover: false,
@@ -13,6 +14,7 @@ class CopyButton extends Component {
       fabCopyIcon: ["fas", "clipboard-check"],
     });
   };
+
   render() {
     return (
       <div
@@ -20,7 +22,7 @@ class CopyButton extends Component {
         className="absolute top-0 right-0 text-center m-1 cursor-pointer "
       >
         <CopyToClipboard
-          text={this.props.data}
+          text={this.props.data.join("\r\n")}
           className=""
           onCopy={() => this.setState({ copied: true })}
         >
@@ -31,6 +33,7 @@ class CopyButton extends Component {
             />
           </span>
         </CopyToClipboard>
+       
       </div>
     );
   }
