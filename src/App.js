@@ -48,7 +48,7 @@ class App extends Component {
               <Route path="/addbefore" element={<AddBefore data={this.state.globalState.dataArray}/>} />
                 
 
-              <Route path="/sortcountry" element={<Sort />} />
+              <Route path="/sortcountry" element={<Sort data={this.state.globalState.dataArray} />} />
                 
 
               <Route path="/" element={<Home globalStateDataImport={this.globalStateDataImport} />} />
@@ -59,6 +59,7 @@ class App extends Component {
             {/* <Footer /> */}
           </div>
         </Router>
+        < Footer />
       </div>
     );
   }
