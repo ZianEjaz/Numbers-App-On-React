@@ -13,7 +13,7 @@ const DownloadCsv = (props) => {
 
     const data = 
     props.state.numbersArray.map((number, index)=>{
-return {name : `cst${index}`, label: `${props.state.label} ::: * myContacts`, phone1: `${number}`}
+return {name : `cst${props.state.startingNumber + index}`, label: `${props.state.label} ::: * myContacts`, phone1: `${number}`}
 
     })
     

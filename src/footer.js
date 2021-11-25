@@ -6,7 +6,7 @@ class Footer extends Component {
 
 
   state = {
-    numbersArray: this.props.data ,
+    numbersArray: [] ,
     account: '',
     label: '',
     startingNumber: '',
@@ -15,6 +15,7 @@ class Footer extends Component {
 
   updateNumber = (event) => {
     this.setState({
+      numbersArray : this.props.data,
       startingNumber: event.target.value
     })
   }
